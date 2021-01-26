@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import React , { useState, useEffect }from 'react';
+import React , { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Camera } from 'expo-camera';
 import Bottom from './picComponent/Bottom';
 
 
-export default function TakePic({ navigation }){
+export default function TakePic( { navigation } ){
     const [hasPermission, setHasPermission] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
 
@@ -26,9 +26,14 @@ export default function TakePic({ navigation }){
     return (
         <View style={styles.container}>
             <Camera style={styles.camera} type={type} ref={ref => {this.camera = ref}} >
-            <View style={styles.bottomContainer}>
-                <Bottom style={styles.bottom}></Bottom>
-            </View>
+                <View style={styles.rect}>
+                    <Text style={styles.text}>
+                        사각형 꼭지점에 결과지를 맞춰주세요 !
+                    </Text>
+                </View>
+                <View style={styles.bottomContainer}>
+                    <Bottom style={styles.bottom}></Bottom>
+                </View>
                 {/* 
                     <TouchableOpacity
                         style={styles.flipButton}
@@ -67,9 +72,25 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: 'transparent',
     },
+    rect: {
+        flex:1,
+        width: 330,
+        height: 460,
+        position: "absolute",
+        left: 15,
+        top: 10,
+        borderWidth: 1.5,
+        borderColor: "#f1237b",
+        borderStyle: "solid"
+      },
     text: {
-      fontSize: 18,
-      color: 'white',
+        marginTop: 410,
+        fontFamily: "Roboto",
+        fontSize: 15,
+        fontWeight: "bold",
+        fontStyle: "normal",
+        textAlign: "center",
+        color: "#f1237b"
     },
     bottomContainer: {
       flex:1,
