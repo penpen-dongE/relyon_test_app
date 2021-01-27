@@ -1,15 +1,21 @@
 <script src="http://localhost:8097"></script>
-import React, { useState } from "react";
-import { StyleSheet, View, TouchableOpacity, CameraRoll } from "react-native";
+import React, { useState, setState } from "react";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import * as ImagePicker from 'expo-image-picker';
+import CheckModal from './CheckModal';
 
-export default function Bottom(props) {
 
-    const [image, setImage] = useState(null);
+export default function Bottom(props,{navigation}) {
 
-    pickImage = async () => {
+  const [image, setImage] = useState(null);
+  const [visible, setVisible] = useState(false);
+  const [key, setKey] = useState(false);
+
+  console.log("촬영버튼 누르기전 visible 값 : "+ visible);
+
+  pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
           mediaTypes: ImagePicker.MediaTypeOptions.Images
         });
@@ -18,47 +24,59 @@ export default function Bottom(props) {
         if (!result.cancelled){
             setImage(result.uri);
         }
-    };
-    
-    takePicture = async () => {
         
-        if (this.camera) {
-          let photo = await this.camera.takePictureAsync({
-              quality: 1,
-          });
-          console.log(photo);
+  };
+    
+  takePicture = async () => {
+        
+    if (this.camera) {
+      let photo = await this.camera.takePictureAsync({
+        quality: 1,
+      });
+      console.log(photo);
           
-          if(photo){
-              setImage(photo.uri); 
-          }
-        }
+      if(photo){
+        setImage(photo.uri);
+      }
+      // console.log("key : "+key);
+      // setState(()=>setVisible(true));
+      // console.log("촬영버튼 누른 후 visible 값 setState 처리 : "+ visible);
     }
+  };
 
-
-    return (
-        <View style={[styles.container, props.style]}>
-            <View style={styles.group2}>
-                <View style={styles.rect}>
-                    <View style={styles.iconRow}>
-                        <TouchableOpacity
-                            style={styles.pickImageButton}
-                            onPress={()=>this.pickImage()}
-                        >
-                        <FontAwesomeIcon name="photo" style={styles.icon}/>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.takePictureButton}
-                            onPress={()=>this.takePicture()}
-                        >
-                        <MaterialCommunityIconsIcon
-                            name="camera-iris"
-                            style={styles.icon2} />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
+  return (
+    <View style={[styles.container, props.style]}>
+      <View style={styles.group2}>
+        <View style={styles.rect}>
+          <View style={styles.iconRow}>
+            <TouchableOpacity
+              style={styles.pickImageButton}
+              onPress={()=>this.pickImage()}
+            >
+              <FontAwesomeIcon name="photo" style={styles.icon}/>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.takePictureButton}
+              onPress={()=>{
+                this.takePicture();
+                setVisible(true);
+                setKey(true);
+                console.log("촬영버튼 누른 후 visible 값 : "+ visible);
+                console.log("key : "+key);
+              }}
+              key={key}
+            >
+              <CheckModal visible={visible}/>
+              <MaterialCommunityIconsIcon
+                name="camera-iris"
+                style={styles.icon2} />
+            </TouchableOpacity>
+          </View>
         </View>
-    );
+      </View>
+    </View>
+        
+  );
 }
 
 const styles = StyleSheet.create({
