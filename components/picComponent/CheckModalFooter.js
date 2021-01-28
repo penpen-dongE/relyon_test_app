@@ -35,34 +35,33 @@ export default function CheckModalFooter(props){
 const styles = StyleSheet.create({
     container:{
         flex:1,
+        marginTop: 55,
         flexDirection: "row",
+        justifyContent: "space-around"
     },
 
     cameraButton:{
-        flex: 1,
-        alignSelf: 'flex-end',
-        alignItems: 'center',
-        width: 15,
-        height: 55,
+        flex:0.45,
+        marginRight:10,
+        justifyContent: "center",
+        width: 100,
+        height: 50,
         backgroundColor: "#323c47"
         
     },
     nextButton:{
-        flex: 1,
-        alignSelf: 'flex-end',
-        alignItems: 'center',
-        justifyContent: "center",  // 왜 버튼 안 텍스트위치 조정이 안될까?...
-        width: 15,
-        height: 55,
+        flex:0.45,
+        marginLeft:10,
+        justifyContent: "center",  
+        width: 100,
+        height: 50,
         backgroundColor: "#5635ef"
     },
     text:{
-        flex:1,
         fontFamily: "Roboto",
-        fontSize: 15,
+        fontSize: 13.5,
         fontWeight: "bold",
         textAlign: "center",
-        justifyContent: "center",
         color: "#ffffff"
     },
 })

@@ -1,3 +1,4 @@
+// import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from "react";
 import { 
     StyleSheet, 
@@ -30,11 +31,11 @@ export default function CheckModal(props){
         // console.log("key가 존재할 때, modalVisivle 확인 : "+ modalVisible);
     }
     
-    
     return(
         <View style={styles.container}>
-
+            <StatusBar hidden={true}/>
             <Modal
+                
                 animationType="slide"
                 transparent={true}
                 visible={modalVisible}
@@ -42,9 +43,12 @@ export default function CheckModal(props){
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
                         <Text style = {styles.headertext}>촬영 결과</Text>
-                        <Text>글자가 또렷하게 보였는지 확인해주세요</Text>
+                        <Text style = {{marginTop:8}}>글자가 또렷하게 보였는지 확인해주세요</Text>
       
-                        {props.image && <Image source={{ uri: props.image }} style={{ flex:3, marginTop:20, width: 250, height: 300 }} />}
+                        {props.image && <Image source={{ uri: props.image }} 
+                            style={{ resizeMode:"contain", borderColor:"#5635ef", 
+                                borderWidth:1,
+                                marginTop:35, width: 200, height: 270 }} />}
                         <CheckModalFooter modalVisible={setModalVisible}/>
                     </View>
                 </View>
@@ -56,40 +60,25 @@ export default function CheckModal(props){
 const styles= StyleSheet.create({
     container:{
         flex:1,
-        justifyContent: "center",
-        alignItems: "center",
         marginTop: 20,
-        width: 123,
-        height: 160,
         borderRadius: 3.3,
-        backgroundColor: "#ffffff"
     },
     centeredView:{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 20
+        backgroundColor: 'rgba(50, 60, 71, 0.8)',
     },
     modalView:{
-        flex:1,
-        margin: 20,
+        // flex:1,
         backgroundColor: "white",
+        width: 330,
+        height: 510,
         borderRadius: 20,
-        padding: 15,
         alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5
     },
     headertext:{
-        // flex:1,
-        width: 100,
-        height: 40,
+        marginTop:25,
         fontFamily: "Roboto",
         fontSize: 23,
         fontWeight: "bold",
