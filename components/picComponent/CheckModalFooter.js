@@ -16,7 +16,8 @@ export default function CheckModalFooter(props){
         <View style={styles.container}>
             <TouchableOpacity style={styles.cameraButton}
                 onPress={()=> {navigation.navigate('TakePic')
-                    props.modalVisible(false)}}
+                    props.modalVisible(false)
+                }}
             >
                 <Text style={styles.text}>다시 촬영</Text>
 
