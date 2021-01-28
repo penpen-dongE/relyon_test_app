@@ -20,7 +20,7 @@ export default class extends React.Component {
     return (
       <React.Fragment>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
+          <Stack.Navigator initialRouteName="Home" headerMode="none">
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="TakePic" component={TakePic} />
             <Stack.Screen name="ModifyInfo" component={ModifyInfo} />

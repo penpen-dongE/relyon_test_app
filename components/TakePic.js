@@ -25,6 +25,7 @@ export default function TakePic( { navigation } ){
 
     return (
         <View style={styles.container}>
+            <Text style={styles.headerText}>검사지 촬영</Text>
             <Camera style={styles.camera} type={type} ref={ref => {this.camera = ref}} >
                 <View style={styles.rect}>
                     <Text style={styles.text}>
@@ -55,37 +56,32 @@ export default function TakePic( { navigation } ){
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
+        flex: 1,
+    },
+    headerText:{
+        flex:0.8,
+        paddingTop:15,
+        backgroundColor:"rgba(0,0,0,1)",
+        textAlign:"center",
+        fontSize:20,
+        color:"white",
+        fontWeight: "bold",
     },
     camera: {
-      flex: 1,
-    },
-    buttonContainer: {
-      flex: 1,
-      backgroundColor: 'transparent',
-      flexDirection: 'row',
-      margin: 20,
-    },
-    flipButton: {
-      flex: 0.1,
-      alignSelf: 'flex-end',
-      alignItems: 'center',
-      backgroundColor: 'transparent',
+        flex: 9,
     },
     rect: {
-        flex:1,
-        width: 330,
-        height: 460,
-        position: "absolute",
-        left: 15,
-        top: 10,
-        borderWidth: 1.5,
+        flex:4,
+        alignItems:"flex-end",
+        marginTop:25,
+        marginHorizontal: 10,
+        borderWidth: 1.7,
         borderColor: "#f1237b",
         borderStyle: "solid"
       },
     text: {
-        marginTop: 410,
-        fontFamily: "Roboto",
+        marginTop: 380,
+        marginRight: 50,
         fontSize: 15,
         fontWeight: "bold",
         fontStyle: "normal",
@@ -94,16 +90,17 @@ const styles = StyleSheet.create({
     },
     bottomContainer: {
       flex:1,
-      width: 360,
-      height: 75,
       flexDirection: 'row',
       alignItems: 'flex-end',
     },
     bottom: {
-      flex:1,
-      height: 75,
-      width: 360,
       flexDirection: 'row',
-    }
+    },
+    // flipButton: {
+    //     flex: 0.1,
+    //     alignSelf: 'flex-end',
+    //     alignItems: 'center',
+    //     backgroundColor: 'transparent',
+    // },
 
   });
