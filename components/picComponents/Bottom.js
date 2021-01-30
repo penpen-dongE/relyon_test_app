@@ -9,15 +9,6 @@ import CheckModal from './CheckModal';
 
 export default function Bottom(props) {
 
-  // useEffect(()=>{
-  //   console.log('useEffect 실행 -> 모달 visible 바꿀꺼야');
-  //   return()=>{
-  //     console.log('모달 visible false로 바꾸기');
-  //     setVisible(false);
-  //     console.log('modalvisible flase?? : '+ visible);
-  //   };
-  // });
-
   const [image, setImage] = useState(null);
   const [visible, setVisible] = useState(false);
   const [key, setKey] = useState(false);

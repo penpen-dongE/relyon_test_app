@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React , { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Camera } from 'expo-camera';
-import Bottom from './picComponent/Bottom';
+import Bottom from './picComponents/Bottom';
 
 
 export default function TakePic( { navigation } ){

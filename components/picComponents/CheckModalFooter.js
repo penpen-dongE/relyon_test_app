@@ -4,13 +4,13 @@ import {
     View ,
     Text,
     TouchableOpacity,
-    Modal
   } from 'react-native';
   import { useNavigation } from '@react-navigation/native';
 
 export default function CheckModalFooter(props){
+    
     const navigation = useNavigation();
-
+    // console.log("Modal Footer - 프롭스 이미지 넘어옴? "+props.image); //image.uri 넘어옴
     return(
 
         <View style={styles.container}>
@@ -20,11 +20,11 @@ export default function CheckModalFooter(props){
                 }}
             >
                 <Text style={styles.text}>다시 촬영</Text>
-
             </TouchableOpacity>
             <TouchableOpacity style={styles.nextButton}
-                onPress={() => {navigation.navigate('ModifyInfo')
-                    props.modalVisible(false)}}
+                image = {props.image}
+                onPress={() => {navigation.navigate('ModifyInfo',{image : props.image})
+                    props.modalVisible(false)} }
             >
                 <Text style={styles.text}>다음</Text>
             </TouchableOpacity>
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#5635ef"
     },
     text:{
-        fontFamily: "Roboto",
         fontSize: 13.5,
         fontWeight: "bold",
         textAlign: "center",

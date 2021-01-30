@@ -1,5 +1,5 @@
 // import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { 
     StyleSheet, 
     View ,
@@ -7,22 +7,10 @@ import {
     Modal,
     StatusBar, Image
   } from 'react-native';
-
-// import { Modal, ModalButton, ModalContent, ModalFooter, ModalTitle } from 'react-native-modals'; // 모달 임포트
 import CheckModalFooter from "./CheckModalFooter";
 
 export default function CheckModal(props){
-    console.log("프롭스로 넘어온 테스트 이미지 값 : "+props.image);
-    // console.log("props로 넘어온 visible 확인 : "+ props.visible); 
-
-    // useEffect(()=>{
-    //     console.log('useEffect 실행 -> 모달 visible 바꿀꺼야');
-    //     return()=>{
-    //       console.log('모달 visible false로 바꾸기');
-    //       setModalVisible(false);
-    //       console.log('modalvisible flase?? : '+ modalVisible);
-    //     };
-    //   });
+    // console.log("Modal - 프롭스로 넘어온 테스트 이미지 값 : "+props.image);
 
     const [modalVisible, setModalVisible] = useState(props.visible);
     
@@ -49,7 +37,7 @@ export default function CheckModal(props){
                             style={{ resizeMode:"contain", borderColor:"#5635ef", 
                                 borderWidth:1,
                                 marginTop:35, width: 200, height: 270 }} />}
-                        <CheckModalFooter modalVisible={setModalVisible}/>
+                        <CheckModalFooter image={props.image} modalVisible={setModalVisible}/>
                     </View>
                 </View>
             </Modal>

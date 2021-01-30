@@ -23,7 +23,9 @@ export default class extends React.Component {
           <Stack.Navigator initialRouteName="Home" headerMode="none">
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="TakePic" component={TakePic} />
-            <Stack.Screen name="ModifyInfo" component={ModifyInfo} />
+            <Stack.Screen name="ModifyInfo" component={ModifyInfo} 
+              image={({ params }) => params.image} />
+            
           </Stack.Navigator>
         </NavigationContainer> 
         <ModalPortal/>
