@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity,
     FlatList, TextInput, SafeAreaView} from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 export default function Content(props) {
+    const navigation = useNavigation();
 
     const DATA = [
         {
@@ -57,17 +59,15 @@ export default function Content(props) {
             />
             {
                 title === 'EGPR'
-                ?   <TouchableOpacity style={styles.confirm}>
+                ?   <TouchableOpacity style={styles.confirm}
+                        onPress={()=>{navigation.navigate('ConfirmModal',{token : true})}}
+                    >
                         <Text style={styles.confirmText}>확인</Text>
                     </TouchableOpacity>
                 : null
             }
         </SafeAreaView>
     )}
-
-    <TouchableOpacity style={styles.confirm}>
-    <Text style={styles.confirmText}>확인</Text>
-    </TouchableOpacity>
 
     const renderItem = ({ item }) => (        
         <Item title={item.title} data={item.data} />

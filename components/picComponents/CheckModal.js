@@ -23,7 +23,6 @@ export default function CheckModal(props){
         <View style={styles.container}>
             <StatusBar hidden={true}/>
             <Modal
-                
                 animationType="slide"
                 transparent={true}
                 visible={modalVisible}

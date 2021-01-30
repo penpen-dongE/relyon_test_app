@@ -22,7 +22,7 @@ export default function CheckModalFooter(props){
                 <Text style={styles.text}>다시 촬영</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.nextButton}
-                image = {props.image}
+                // image = {props.image}
                 onPress={() => {navigation.navigate('ModifyInfo',{image : props.image})
                     props.modalVisible(false)} }
             >

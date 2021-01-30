@@ -13,8 +13,6 @@ export default function ModifyInfo(props){
 
     const route = useRoute();
     const image = route.params;
-    // console.log("route.params 이미지값 : "+JSON.stringify(image.image));
-    // console.log("ModifyInfo - route.params로 넘어온 이미지값 : "+JSON.stringify(image));
     
     return(
         <View style={styles.container}>
