@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity,
-    FlatList, TextInput, ScrollView } from "react-native";
+    FlatList, TextInput, SafeAreaView} from "react-native";
 
 export default function Content(props) {
 
@@ -41,55 +41,58 @@ export default function Content(props) {
             data:'Negative',
         },
     ]
-    // console.log(DATA[0].data);
-    // console.log(DATA);  
-     
-    const Item = ({ data, title }) => {
-        console.log(data);
-        
-        // console.log(data === undefined);
-        // console.log(title)
+
+    const Item = ({ title, data }) => {
+        console.log(title);
         const [value, onChangeText] = useState('') ;
         return (
-        <View style={styles.item}>
+        <SafeAreaView style={styles.item}>
             <Text style={styles.title}>{title}</Text>
             <TextInput style={styles.inputText}
                 onChangeText={text => onChangeText(text)}
                 placeholder={data}
+                placeholderTextColor={'#f1237b'}
                 value={value}
+
             />
-        </View>
+            {
+                title === 'EGPR'
+                ?   <TouchableOpacity style={styles.confirm}>
+                        <Text style={styles.confirmText}>확인</Text>
+                    </TouchableOpacity>
+                : null
+            }
+        </SafeAreaView>
     )}
 
-    const renderItem = ({ item }) => (        
-        <Item title={item.title} />
-        
-    )
+    <TouchableOpacity style={styles.confirm}>
+    <Text style={styles.confirmText}>확인</Text>
+    </TouchableOpacity>
 
-    // const ITEM_HEIGHT = 5;
-    // const getItemLayout = useCallback(
-    //     (data, index) => ({
-    //         length: ITEM_HEIGHT,
-    //         offset: ITEM_HEIGHT * index,
-    //         index,    
-    //     }), 
-    //     []
-    // );
+    const renderItem = ({ item }) => (        
+        <Item title={item.title} data={item.data} />
+    
+    )
 
     return(
         <View style={styles.container}>
-            <Text style={styles.titleText1}>* 인식한 값</Text>
-            <Text style={styles.titleText2}>이 틀린 경우 직접 입력해주세요.</Text>
-            <FlatList 
-                style = {styles.flat}
-                data={DATA}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
-                // getItemLayout={getItemLayout}
-            />
-            <TouchableOpacity style={styles.confirm}>
-                <Text style={styles.confirmText}>확인</Text>
-            </TouchableOpacity>
+            <View style={styles.textContainer}>
+                <Text style={styles.titleText1}>* 인식한 값</Text>
+                <Text style={styles.titleText2}>이 틀린 경우 직접 입력해주세요.</Text>
+            </View>
+            <View style={styles.flatContainer}>
+                <FlatList 
+                    style = {styles.flat}
+                    data={DATA}
+                    renderItem={renderItem}
+                    keyExtractor={item => item.id}
+                    showsVerticalScrollIndicator={false}
+                />
+                {/* <TouchableOpacity style={styles.confirm}>
+                    <Text style={styles.confirmText}>확인</Text>
+                </TouchableOpacity> */}
+            </View>
+            
         </View>
     )
 }
@@ -98,8 +101,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 3,
         marginTop:13,
-        flexDirection:"row",
+        flexDirection:"column",
         backgroundColor: "#f6f6f9",
+        justifyContent: "center",
+        alignItems:"center",
+    },
+    textContainer:{
+        flex:0.3,
+        flexDirection:"row",
+    },
+    flatContainer:{
+        flex:2.5,
         justifyContent: "center",
     },
     titleText1: {
@@ -112,34 +124,41 @@ const styles = StyleSheet.create({
         color:"#323c47",
     },
     flat:{
-        position:"absolute",
-        marginTop:30,
-        marginRight:50,
+        flex:1,
+        marginTop:15,
     },
     item:{
-
+        marginRight:5,
     },
     title:{
         fontSize: 17,
-        fontWeight:"bold",       
+        fontWeight:"bold",  
+        color:"#262626",     
     },
     inputText:{
+        width:245,
+        height:30,
         borderRadius:1.3,
         marginTop:10,
+        marginBottom:15,
         backgroundColor:"#fdfdfd",
         borderStyle:"solid",
         borderWidth:0.3,
         borderColor:"#323c47",
     },
     confirm:{
-        position:"absolute",
-        marginTop:320,
+        width:230,
+        height:40,
+        marginTop:5,
+        marginLeft:8,
+        borderRadius:1.5,
         backgroundColor:"#5635ef",
+        justifyContent:"center"
     },
     confirmText:{
         color:"#ffffff",
         fontSize:15,
-
-    }
+        textAlign:"center",
+    },
 
 })

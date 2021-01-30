@@ -6,16 +6,16 @@ export default function Footer() {
     return (
         <View style={styles.footer}>
             <TouchableOpacity style={styles.button}>
-                <Image source = {require('./../../image/home_black_24_dp.png')} />
-                <Text>홈</Text>
+                <Image style={{marginBottom:-3.5}} source = {require('./../../image/home_black_24_dp.png')} />
+                <Text style={styles.text}>홈</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button}>
                 <Image source = {require('./../../image/camera_alt_black_24_dp.png')} /> 
-                <Text>결과추가</Text>
+                <Text style={styles.text}>결과추가</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button}>
                 <Image source = {require('./../../image/person_black_24_dp.png')} />
-                <Text>마이페이지</Text>
+                <Text style={styles.text}>마이페이지</Text>
             </TouchableOpacity>
         </View> 
     )
@@ -35,5 +35,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#ffffff',
         color: '#323c47',
-    }
+    },
+    text:{
+        color:'#323c47',
+    },
 })
