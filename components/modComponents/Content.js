@@ -45,7 +45,7 @@ export default function Content(props) {
     ]
 
     const Item = ({ title, data }) => {
-        console.log(title);
+        // console.log(title);
         const [value, onChangeText] = useState('') ;
         return (
         <SafeAreaView style={styles.item}>

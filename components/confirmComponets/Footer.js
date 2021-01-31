@@ -15,16 +15,14 @@ export default function Footer() {
 
 const styles = StyleSheet.create({
     header: {
-        // flex: 1,
+        flex: 1,
         flexDirection:"row",
-        backgroundColor: "#f6f6f9",
         justifyContent: "center",
     },
     confirm:{
-        // width:230,
-        // height:40,
-        // marginTop:5,
-        // marginLeft:8,
+        width:230,
+        height:40,
+        
         borderRadius:1.5,
         backgroundColor:"#5635ef",
         justifyContent:"center"

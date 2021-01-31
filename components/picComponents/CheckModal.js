@@ -66,7 +66,6 @@ const styles= StyleSheet.create({
     },
     headertext:{
         marginTop:25,
-        fontFamily: "Roboto",
         fontSize: 23,
         fontWeight: "bold",
         textAlign: "center",

@@ -11,12 +11,13 @@ export default function Header() {
 
 const styles = StyleSheet.create({
     header: {
-        // flex: 1,
+        flex: 1,
         flexDirection:"row",
         backgroundColor: "#ffffff",
         justifyContent: "center",
     },
     text:{
+        marginTop:25,
         color:"#323c47",
         fontSize:23,
         fontWeight: "bold",
