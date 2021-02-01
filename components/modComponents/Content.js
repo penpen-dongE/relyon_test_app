@@ -60,7 +60,7 @@ export default function Content(props) {
             {
                 title === 'EGPR'
                 ?   <TouchableOpacity style={styles.confirm}
-                        onPress={()=>{navigation.navigate('ConfirmModal',{token : true})}}
+                        onPress={()=>{navigation.navigate('ConfirmModal',{token : true},{check:true})}}
                     >
                         <Text style={styles.confirmText}>확인</Text>
                     </TouchableOpacity>

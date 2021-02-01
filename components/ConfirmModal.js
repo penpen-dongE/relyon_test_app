@@ -9,6 +9,7 @@ export default function ConfirmModal(props){
     const route = useRoute();
     const token = route.params;
     // console.log("라우트 파람 토큰"+token.token);
+
     const [visible, setVisible] = useState(token.token);
 
     return(
@@ -22,7 +23,9 @@ export default function ConfirmModal(props){
                     <View style={styles.modalView}>
                         <Header />
                         <Content />
-                        <Footer />
+                        <Footer 
+                        visible={setVisible} 
+                        />
                     </View>
                 </View>
             </Modal>
@@ -50,4 +53,5 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: "center",
     },
+    
 })

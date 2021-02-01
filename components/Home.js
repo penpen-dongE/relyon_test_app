@@ -1,17 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { 
   StyleSheet, 
   View ,
-  Button 
+  StatusBar 
 } from 'react-native';
+import Header from './homeComponents/Header';
+import Title from './homeComponents/Title';
+import Content from './homeComponents/Content';
+import Footer from './homeComponents/Footer';
 
-export default function Home({ navigation }) {
+export default function Home() {
   
     return(
         <View style={styles.container}>
-            <Button title={"사진 촬영"}
-              onPress = {() => navigation.navigate('TakePic')} />
+          <StatusBar hidden={true} />
+          <Header/>
+          <Title/>
+          <Content/>
+          <Footer/> 
         </View>
     );
   }
@@ -19,7 +26,7 @@ export default function Home({ navigation }) {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#f6f6f9',
       alignItems: 'center',
       justifyContent: 'center',
     },

@@ -3,9 +3,15 @@ import React , { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Camera } from 'expo-camera';
 import Bottom from './picComponents/Bottom';
+import { useRoute } from '@react-navigation/native';
+import ConfirmModal from './ConfirmModal';
 
 
-export default function TakePic( { navigation } ){
+export default function TakePic(){
+    const route = useRoute();
+    // const token = route.params;
+    // console.log(token.token);
+
     const [hasPermission, setHasPermission] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
 

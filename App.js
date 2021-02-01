@@ -6,6 +6,7 @@ import Home from './components/Home';
 import TakePic from './components/TakePic';
 import ModifyInfo from './components/ModifyInfo';
 import ConfirmModal from './components/ConfirmModal';
+import Report from './components/Report';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ModalPortal } from 'react-native-modals';
@@ -27,8 +28,9 @@ export default class extends React.Component {
             <Stack.Screen name="ModifyInfo" component={ModifyInfo} 
               image={({ params }) => params.image} />
             <Stack.Screen name="ConfirmModal" component={ConfirmModal}
-              token={({ params }) => params.token} />
-            
+              token={({ params }) => params.token}
+              check={({ params }) => params.check} />
+            <Stack.Screen name="Report" component={Report} />
           </Stack.Navigator>
         </NavigationContainer> 
         <ModalPortal/>
