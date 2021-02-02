@@ -4,6 +4,9 @@ import { StyleSheet, Text, View,
     FlatList, SafeAreaView, ScrollView } from 'react-native';
 import { Image } from 'react-native' ; 
 import Constants from 'expo-constants';
+import Header from './reportComponents/Header';
+import Title from './reportComponents/Title';
+import Footer from './reportComponents/Footer';
 
 export default function Report() {
 
@@ -53,12 +56,20 @@ export default function Report() {
     )
     return (
         <View style={styles.container}>
-            <FlatList
-                style = {styles.flat}
-                renderItem={renderItem}
-                data={IMG}
-                keyExtractor={item => item.id}
-            />
+            <Header />
+            <Title />
+            <View style={styles.flatContainer}>
+                <FlatList
+                    style = {styles.flat}
+                    renderItem={renderItem}
+                    data={IMG}
+                    keyExtractor={item => item.id}
+                    ItemSeparatorComponent={()=>(       // 아이템 사이의 간격을 주기위한 속성
+                        <View style={{marginTop:-50}}/>
+                    )}
+                />
+            </View>
+            
             {/* <ScrollView style={styles.scroll}> */}
                 {/* <View style={styles.content}> */}
                     {/* <Image 
@@ -85,18 +96,22 @@ export default function Report() {
                 {/* </View> */}
                 
             {/* </ScrollView>     */}
+            <Footer />
         </View>     
     );
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1.5,
         // width: '100%',
-        
-        // backgroundColor: '#ffffff',
+        backgroundColor: 'yellow',
         // justifyContent: 'center',
         // alignItems: 'center',
         // marginTop: Constants.statusBarHeight,
+    },
+    flatContainer:{
+        flex:1,
+        justifyContent: "center",
     },
     scroll: {
         // width: '90%',
