@@ -15,7 +15,7 @@ export default function Content() {
     const onPress = () => setList({
         img: require('./../../image/4930.png')
     });
-    // console.log(list.img);
+    console.log(list.img);
     // console.log("키값 바뀌었나? : " + key);
 
     return (
@@ -30,20 +30,22 @@ export default function Content() {
             </View>
             <View style={styles.listContainer}>
             {
-                list.img === 20
-                ?   <Image 
+                list.img === 20 &&
+                   <Image 
                         style={{width:'100%', resizeMode:'contain'}}
                         source={list.img}/>
-                    
-                :   <Image 
-                    style={{width:'100%', resizeMode:'contain'}}
-                    source={list.img}/>
-                    // <TouchableOpacity style={styles.button}
-                        // onPress={()=>{navigation.navigate('Report')}}>
-                        // <Image 
-                        //     style={{width:'100%', resizeMode:'contain'}}
-                        //     source={list.img}/>
-                    // <TouchableOpacity> 
+            }
+            {        
+                list.img === 26 &&   
+                    <TouchableOpacity style={styles.button}
+                        onPress={()=>{navigation.navigate('Report')}}>
+                        <Image 
+                            style={{ marginTop:-180, width:320, resizeMode:'contain'}}
+                            source={list.img}/>
+                    </ TouchableOpacity>
+                    //<Image
+                    // style={{width:'100%', resizeMode:'contain'}}
+                    // source={list.img}/>    
             }    
             </View>                      
             {
@@ -58,7 +60,7 @@ export default function Content() {
                     </TouchableOpacity>
                     
                 :   <TouchableOpacity style={styles.button} // 네비게이션 고쳐야함
-                        onPress={()=>{navigation.navigate('Report')}}
+                        onPress={()=>{navigation.navigate('TakePic')}}
                         >
                         <Image 
                             style={{height:'100%',width:'100%',resizeMode:'contain'}} 

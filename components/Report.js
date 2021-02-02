@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 15,
         // width: '100%',
-        backgroundColor: 'yellow',
+        backgroundColor: '#ffffff',
         // justifyContent: 'center',
         // alignItems: 'center',
         // marginTop: Constants.statusBarHeight,

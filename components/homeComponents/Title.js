@@ -15,7 +15,7 @@ export default function Title() {
                     <Text style={styles.innertext}> 홍길순</Text> 님!
                 </Text>
                 <Text>오늘은  
-                    <Text style={styles.innertext}> 2021.02.02</Text> 입니다.
+                    <Text style={styles.innertext}> 2021.02.03</Text> 입니다.
                 </Text>
             </View>
         </View> 
