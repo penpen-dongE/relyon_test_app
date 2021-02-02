@@ -15,7 +15,8 @@ export default function Content() {
     const onPress = () => setList({
         img: require('./../../image/4930.png')
     });
-    // console.log(key);
+    // console.log(list.img);
+    // console.log("키값 바뀌었나? : " + key);
 
     return (
         <View style={styles.content}>
@@ -27,31 +28,35 @@ export default function Content() {
                     style={{height:'100%',width:'45%',resizeMode:'contain'}}
                     source = {require('./../../image/4851.png')} />
             </View>
-            {/* {
-                key === 1
-                ?
-                :
-            } */}
-
             <View style={styles.listContainer}>
-                <Image 
-                    style={{width:'100%', resizeMode:'contain'}}
-                    source={list.img}/>
+            {
+                list.img === 20
+                ?   <Image 
+                        style={{width:'100%', resizeMode:'contain'}}
+                        source={list.img}/>
+                    
+                :   <TouchableOpacity style={styles.button}
+                        onPress={()=>{navigation.navigate('Report')}}>
+                        <Image 
+                            style={{width:'100%', resizeMode:'contain'}}
+                            source={list.img}/>
+                    </TouchableOpacity>
+            }    
             </View>                      
             {
                 key === 1
                 ?   <TouchableOpacity style={styles.button}
                         onPress={()=>{onPress, setKey(2),
                             setList({img: require('./../../image/4930.png')}),
-                            console.log("키값 바뀌었나? : " + key),
                             navigation.navigate('TakePic')}}>
                         <Image 
                             style={{height:'100%',width:'100%',resizeMode:'contain'}} 
                             source = {require('./../../image/4921.png')} />
                     </TouchableOpacity>
                     
-                :   <TouchableOpacity style={styles.button}
-                        onPress={()=>{navigation.navigate('Report')}}>
+                :   <TouchableOpacity style={styles.button} // 네비게이션 고쳐야함
+                        onPress={()=>{navigation.navigate('Report')}}
+                        >
                         <Image 
                             style={{height:'100%',width:'100%',resizeMode:'contain'}} 
                             source = {require('./../../image/4921.png')} />

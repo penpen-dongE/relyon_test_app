@@ -3,7 +3,7 @@ import React,{ useState, useEffect } from 'react';
 import { StyleSheet, Text, View, 
     FlatList, SafeAreaView, ScrollView } from 'react-native';
 import { Image } from 'react-native' ; 
-import Constants from 'expo-constants';
+import { Dimensions } from 'react-native';
 import Header from './reportComponents/Header';
 import Title from './reportComponents/Title';
 import Footer from './reportComponents/Footer';
@@ -13,32 +13,32 @@ export default function Report() {
     const IMG = [
         {
             id:'0',
-            img: require('./../image/0.jpg')
-        },
-        {
-            id:'1',
             img: require('./../image/1.jpg')
         },
         {
-            id:'2',
+            id:'1',
             img: require('./../image/2.jpg')
         },
         {
-            id:'3',
+            id:'2',
             img: require('./../image/3.jpg')
         },
         {
-            id:'4',
+            id:'3',
             img: require('./../image/4.jpg')
         },
-        {
-            id:'5',
-            img: require('./../image/5.jpg')
-        },
-        {
-            id:'6',
-            img: require('./../image/6.jpg')
-        },
+        // {
+        //     id:'4',
+        //     img: require('./../image/4.jpg')
+        // },
+        // {
+        //     id:'5',
+        //     img: require('./../image/5.jpg')
+        // },
+        // {
+        //     id:'6',
+        //     img: require('./../image/6.jpg')
+        // },
     ]
 
     const Item = ({ img }) => {
@@ -64,9 +64,10 @@ export default function Report() {
                     renderItem={renderItem}
                     data={IMG}
                     keyExtractor={item => item.id}
-                    ItemSeparatorComponent={()=>(       // 아이템 사이의 간격을 주기위한 속성
-                        <View style={{marginTop:-50}}/>
-                    )}
+                    
+                    // ItemSeparatorComponent={()=>(       // 아이템 사이의 간격을 주기위한 속성
+                    //     <View style={{marginTop:-50}}/>
+                    // )}
                 />
             </View>
             
@@ -102,7 +103,7 @@ export default function Report() {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1.5,
+        flex: 1,
         // width: '100%',
         backgroundColor: 'yellow',
         // justifyContent: 'center',

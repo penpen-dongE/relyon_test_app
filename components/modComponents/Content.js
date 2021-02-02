@@ -55,7 +55,6 @@ export default function Content(props) {
                 placeholder={data}
                 placeholderTextColor={'#f1237b'}
                 value={value}
-
             />
             {
                 title === 'EGPR'
@@ -71,7 +70,6 @@ export default function Content(props) {
 
     const renderItem = ({ item }) => (        
         <Item title={item.title} data={item.data} />
-    
     )
 
     return(
