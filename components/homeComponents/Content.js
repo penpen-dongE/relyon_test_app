@@ -35,12 +35,15 @@ export default function Content() {
                         style={{width:'100%', resizeMode:'contain'}}
                         source={list.img}/>
                     
-                :   <TouchableOpacity style={styles.button}
-                        onPress={()=>{navigation.navigate('Report')}}>
-                        <Image 
-                            style={{width:'100%', resizeMode:'contain'}}
-                            source={list.img}/>
-                    </TouchableOpacity>
+                :   <Image 
+                    style={{width:'100%', resizeMode:'contain'}}
+                    source={list.img}/>
+                    // <TouchableOpacity style={styles.button}
+                        // onPress={()=>{navigation.navigate('Report')}}>
+                        // <Image 
+                        //     style={{width:'100%', resizeMode:'contain'}}
+                        //     source={list.img}/>
+                    // <TouchableOpacity> 
             }    
             </View>                      
             {

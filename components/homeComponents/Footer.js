@@ -1,18 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { Image } from 'react-native' ; 
 
 //onPress는 반영안함. merge 후 해당되는 홈/ 결과추가 컴포넌트에 네비게이션 해야함
 
 export default function Footer() {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.footer}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button}
+                onPress={()=>{navigation.navigate('Home')}}>
                 <Image source = {require('./../../image/home_black_24_dp.png')} />
                 <Text>홈</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button}
+                onPress={()=>{navigation.navigate('TakePic')}}>
                 <Image source = {require('./../../image/camera_alt_black_24_dp.png')} /> 
                 <Text>결과추가</Text>
             </TouchableOpacity>
